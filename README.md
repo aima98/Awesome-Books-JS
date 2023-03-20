@@ -1,4 +1,4 @@
-# Capstone-Project1
+# Awesome-Books-Plain-JavaScript-with-objects
 <a name="readme-top"></a>
 
 <div align="center">

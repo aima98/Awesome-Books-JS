@@ -57,3 +57,21 @@ function addBookToPage (bookStorage) {
     author.value = '';
   });
 }
+
+const deleteBook = (e) => {
+  e.parentElement.parentElement.parentElement.remove();  
+}
+  
+deleteBook ();
+
+function addDataToLocalStorage () {
+  window.localStorage.setItem("books", JSON.stringify(bookStorage));
+}
+
+function getItemsFromLocalStorage () {
+  let Data = window.localStorage.getItem("books");
+  if(Data) {
+    let books = JSON.parse(Data);
+    addBookToPage(books);
+  }
+}

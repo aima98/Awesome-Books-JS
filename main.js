@@ -7,8 +7,8 @@ let author = document.getElementById('author');
 let bookStorage = [];
 
 // CHecking if there are any books in Local Storage
-if(localStorage.getItem("books")) {
-  bookStorage = JSON.parse(localStorage.getItem("books"));
+if(localStorage.getItem('books')) {
+  bookStorage = JSON.parse(localStorage.getItem('books'));
 }
 
 getItemsFromLocalStorage();
@@ -64,11 +64,11 @@ const deleteBook = (e) => {
 deleteBook ();
 
 function addDataToLocalStorage () {
-  window.localStorage.setItem("books", JSON.stringify(bookStorage));
+  window.localStorage.setItem('books', JSON.stringify(bookStorage));
 }
 
 function getItemsFromLocalStorage () {
-  let Data = window.localStorage.getItem("books");
+  let Data = window.localStorage.getItem('books');
   if(Data) {
     let books = JSON.parse(Data);
     addBookToPage(books);

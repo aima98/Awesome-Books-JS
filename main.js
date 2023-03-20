@@ -41,18 +41,17 @@ function addBookToPage (bookStorage) {
   section.innerHTML = "";
   // Adding books to the empty section of books  
   bookStorage.forEach(book => {
-    section.innerHTML += `
-      <div id="book">
+    section.innerHTML += `<div id="book">
         <label for="title">${book.title}</label> <br>
         <label for="author">${book.author}</label>
         <div>
           <span>
-            <button onClick="deleteBook(this)" class="fas fa-trash-alt">Remove</button>
+            <button onClick="deleteBook(this)">Remove</button>
           </span>
         </div>
         <hr>
-      </div>
-    `;
+      </div>`;
+      
     title.value = '';
     author.value = '';
   });

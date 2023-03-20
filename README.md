@@ -96,6 +96,12 @@ Clone this repository to your desired folder:
 - Twitter: [@NejjariOumaima](https://twitter.com/NejjariOumaima?t=RtmpuP_lmHYVD3EiP4AeMg&s=03)
 - LinkedIn: [Oumaima Nejjari](https://www.linkedin.com/in/oumaima-nejjari-375065171/)
 
+👤 **Ansar Ibrahim**
+
+- GitHub: [Ansar Ibrahim](https://github.com/AnsarIbrahim)
+- Twitter: [Ansar Ibrahim](https://twitter.com/ansaradheeb)
+- LinkedIn: [Ansar Ibrahim](https://linkedin.com/in/ansar-ibrahim-61447424a/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>

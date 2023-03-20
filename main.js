@@ -51,7 +51,7 @@ function addBookToPage (bookStorage) {
         </div>
         <hr>
       </div>`;
-      
+
     title.value = '';
     author.value = '';
   });

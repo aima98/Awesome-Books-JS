@@ -24,6 +24,7 @@ addBtn.onclick = function() {
 
 function addToBookStorage(titleName, authorName) {
   const book = {
+    id: Date.now(),
     title: titleName,
     author: authorName,
   };
@@ -46,7 +47,7 @@ function addBookToPage (bookStorage) {
         <label for="author">${book.author}</label>
         <div>
           <span>
-            <button onClick="deleteBook(this)">Remove</button>
+            <button onClick="deleteBook(${book.id})">Remove</button>
           </span>
         </div>
         <hr>
@@ -57,11 +58,10 @@ function addBookToPage (bookStorage) {
   });
 }
 
-const deleteBook = (e) => {
-  e.parentElement.parentElement.parentElement.remove();  
-}
-  
-deleteBook ();
+// const deleteBook = (e) => {
+//   e.parentElement.parentElement.parentElement.remove();  
+//   window.localStorage.setItem('e', JSON.stringify(bookStorage));
+// }
 
 function addDataToLocalStorage () {
   window.localStorage.setItem('books', JSON.stringify(bookStorage));
@@ -74,3 +74,11 @@ function getItemsFromLocalStorage () {
     addBookToPage(books);
   }
 }
+
+function deleteBook(id) {
+  books = bookStorage.filter((book) => book.id !== id);
+  window.localStorage.setItem('books', JSON.stringify(books));
+  addBookToPage(books);
+}
+  
+deleteBook ();

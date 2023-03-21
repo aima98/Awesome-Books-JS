@@ -76,7 +76,7 @@ function getItemsFromLocalStorage () {
 }
 
 function deleteBook(id) {
-  books = bookStorage.filter((book) => book.id !== id);
+  let books = bookStorage.filter((book) => book.id !== id);
   window.localStorage.setItem('books', JSON.stringify(books));
   addBookToPage(books);
 }

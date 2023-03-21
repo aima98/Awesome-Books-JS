@@ -1,84 +1,64 @@
-let section = document.getElementById('section');
-let addBtn = document.getElementById('Add');
-let title = document.getElementById('title');
-let author = document.getElementById('author');
+const title = document.getElementById('title');
+const author = document.getElementById('author');
+const addBtn = document.getElementById('add-btn');
+const books = document.getElementById('books');
 
-// Creating empty array to store books
-let bookStorage = [];
+let booksArr = [];
 
-// CHecking if there are any books in Local Storage
-if(localStorage.getItem('books')) {
-  bookStorage = JSON.parse(localStorage.getItem('books'));
+function removeItemAt(arr, index) {
+  arr.splice(index, 1);
 }
 
-getItemsFromLocalStorage();
+function showBooks() {
+  books.innerHTML = '';
+  booksArr.forEach((book, index) => {
+    const appendBook = `
+            <h3>${book.title}</h3><br>
+            <h4>${book.author}</h4><br>
+            <button id="btn-${index}">remove</button>
+            <hr>
+        `;
+    const bookContainer = document.createElement('div');
 
-// Adding a book
-addBtn.onclick = function() {
-  if(title.value != "" && author.value != "") {
-    addToBookStorage(title.value, author.value);
-    title.value = "";
-    author.value = ""; 
-  }
-}
+    bookContainer.id = `book-${index}`;
+    bookContainer.innerHTML = appendBook;
+    books.appendChild(bookContainer);
 
-function addToBookStorage(titleName, authorName) {
-  const book = {
-    id: Date.now(),
-    title: titleName,
-    author: authorName,
-  };
-
-  // Pushing books to bookStorage array
-  bookStorage.push(book);
-  // Adding books to page
-  addBookToPage(bookStorage);
-  // Adding books to local storage
-  addDataToLocalStorage(bookStorage);
-}
-
-function addBookToPage (bookStorage) {
-  // Creating empty section of books  
-  section.innerHTML = "";
-  // Adding books to the empty section of books  
-  bookStorage.forEach(book => {
-    section.innerHTML += `<div id="book">
-        <label for="title">${book.title}</label> <br>
-        <label for="author">${book.author}</label>
-        <div>
-          <span>
-            <button onClick="deleteBook(${book.id})">Remove</button>
-          </span>
-        </div>
-        <hr>
-      </div>`;
-
-    title.value = '';
-    author.value = '';
+    const removeBtn = document.getElementById(`btn-${index}`);
+    removeBtn.addEventListener('click', () => {
+      removeItemAt(booksArr, index);
+      localStorage.setItem('booksData', JSON.stringify(booksArr));
+      showBooks();
+    });
   });
 }
 
-// const deleteBook = (e) => {
-//   e.parentElement.parentElement.parentElement.remove();  
-//   window.localStorage.setItem('e', JSON.stringify(bookStorage));
-// }
-
-function addDataToLocalStorage () {
-  window.localStorage.setItem('books', JSON.stringify(bookStorage));
-}
-
-function getItemsFromLocalStorage () {
-  let Data = window.localStorage.getItem('books');
-  if(Data) {
-    let books = JSON.parse(Data);
-    addBookToPage(books);
+function loadBooks() {
+  if (localStorage.booksData) {
+    booksArr = JSON.parse(localStorage.booksData);
+    showBooks();
+  } else {
+    booksArr = [];
   }
 }
 
-function deleteBook(id) {
-  let books = bookStorage.filter((book) => book.id !== id);
-  window.localStorage.setItem('books', JSON.stringify(books));
-  addBookToPage(books);
+function addItem() {
+  if (title.value !== '' && author.value !== '') {
+    const theBook = {
+      title: title.value,
+      author: author.value,
+    };
+
+    booksArr.push(theBook);
+    title.value = '';
+    author.value = '';
+    localStorage.setItem('booksData', JSON.stringify(booksArr));
+    showBooks();
+  }
 }
-  
-deleteBook ();
+
+addBtn.addEventListener('click', () => addItem());
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadBooks();
+});

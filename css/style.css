@@ -96,8 +96,8 @@ h2 {
 }
 
 nav {
-  margin: 0 0;
-  margin-left: 408px;
+  display: block;
+  margin: 0 0 0 auto;
 }
 
 ul .books {
@@ -106,7 +106,7 @@ ul .books {
   align-items: center;
 }
 
-li {
+.book-item {
   list-style: none;
   margin: -1rem 0 2rem 0;
   text-align: left;
@@ -181,18 +181,25 @@ footer {
   margin-top: -12px;
 }
 
-.contact-info {
-  text-decoration: dotted;
-  list-style: circle;
+.contact {
+  text-align: center;
 }
 
-ul .contact-info,
-.contact-info li {
+.contact-info {
+  display: inline-block;
+  padding: 1rem;
+  text-align: start;
+  gap: 7px;
   background-color: transparent;
   border: none;
-  text-align: center;
-  margin: 0;
-  margin-left: 170px;
-  text-decoration: dotted;
-  list-style: circle;
+  margin: -0.5rem 0 -2px -47px;
+}
+
+.contact-info li {
+  text-align: start;
+}
+
+.contact nav {
+  display: block;
+  margin-left: 10px;
 }

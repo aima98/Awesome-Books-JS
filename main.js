@@ -24,7 +24,7 @@ class Book {
   }
 
   displayBooks() {
-    const bookList = document.getElementById('books');
+    const bookList = document.getElementById('books-list');
     bookList.innerHTML = '';
     this.books.forEach((book, index) => {
       const li = document.createElement('li');
@@ -44,3 +44,19 @@ class Book {
 const bookCollect = new Book();
 document.getElementById('add-btn').addEventListener('click', bookCollect.addBook);
 bookCollect.displayBooks();
+
+const links = document.querySelectorAll('nav a');
+const secTion = document.querySelectorAll('section');
+
+links.forEach((link) => {
+  link.addEventListener('click', () => {
+    links.forEach((link) => link.classList.remove('active'));
+    link.classList.add('active');
+    secTion.forEach((section) => section.style.display = 'none');
+
+    const sectionId = link.getAttribute('href').slice(1);
+    document.getElementById(sectionId).style.display = 'block';
+  });
+});
+
+links[0].click();

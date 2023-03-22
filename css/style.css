@@ -45,7 +45,6 @@ li {
   flex-direction: row;
   align-items: center;
   border: 1px solid black;
-  padding-bottom: 0.5rem;
   background-color: rgb(230, 222, 222);
   padding: 0.3rem;
   padding-right: 1rem;
@@ -59,10 +58,6 @@ li button {
   padding: 0.1rem 0.3rem;
   box-shadow: 3px 3px 3px black;
   margin-left: auto;
-}
-
-.book-item {
-
 }
 
 form {
@@ -94,4 +89,4 @@ form button {
   float: right;
   padding: 0.1rem 0.3rem;
   box-shadow: 3px 3px 3px black;
-} 
+}

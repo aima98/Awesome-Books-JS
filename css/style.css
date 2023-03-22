@@ -203,3 +203,7 @@ footer {
   display: block;
   margin-left: 10px;
 }
+
+.all-books h2 {
+  text-align: center;
+}

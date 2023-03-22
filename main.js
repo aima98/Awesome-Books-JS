@@ -24,7 +24,7 @@ class Book {
   }
 
   displayBooks() {
-    const bookList = document.getElementById('books');
+    const bookList = document.getElementById('books-list');
     bookList.innerHTML = '';
     this.books.forEach((book, index) => {
       const li = document.createElement('li');
